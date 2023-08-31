@@ -28,8 +28,8 @@
                             Cadastro
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="?danyel=formAluno">Aluno</a></li>
-                            <li><a class="dropdown-item" href="?page=formProfessor">Professor</a></li>
+                            <li><a class="dropdown-item" href="?page=alunoControle">Aluno</a></li>
+                            <li><a class="dropdown-item" href="?page=professorControle">Professor</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -50,10 +50,10 @@
     </nav>
     <div class="container">
         <?php
-        if (!empty($_GET['danyel'])) {
-            $pagina = $_GET['danyel']; //formAluno
+        if (!empty($_GET['page'])) {
+            $controle = $_GET['page']; //alunoControle
 
-            include 'pages/' . $pagina . '.php';
+            include 'controle/' . $controle . '.php';
         }
         ?>
 
