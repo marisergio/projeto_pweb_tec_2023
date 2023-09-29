@@ -1,16 +1,29 @@
 <?php
 
-class Aluno
+require_once 'Pessoa.php';
+
+class Aluno extends Pessoa
 {
-    private $id;
-    private $nome;
-    private $mae;
-    private $sexo;
-    private $nascimento;
-    private $logradouro;
-    private $numero;
-    private $bairro;
-    private $cep;
-    private $telefone;
-    private $cidade;
+
+    private $numeroMatricula;
+
+    /**
+     * Get the value of numeroMatricula
+     */
+    public function getNumeroMatricula()
+    {
+        return $this->numeroMatricula;
+    }
+
+    /**
+     * Set the value of numeroMatricula
+     *
+     * @return  self
+     */
+    public function setNumeroMatricula($numeroMatricula)
+    {
+        $this->numeroMatricula = $numeroMatricula;
+
+        return $this;
+    }
 }
