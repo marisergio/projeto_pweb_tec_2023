@@ -14,11 +14,11 @@ class Pessoa
     private $telefone;
     private $cidade;
 
-    
+
 
     /**
      * Get the value of id
-     */ 
+     */
     public function getId()
     {
         return $this->id;
@@ -28,7 +28,7 @@ class Pessoa
      * Set the value of id
      *
      * @return  self
-     */ 
+     */
     public function setId($id)
     {
         $this->id = $id;
@@ -38,7 +38,7 @@ class Pessoa
 
     /**
      * Get the value of nome
-     */ 
+     */
     public function getNome()
     {
         return $this->nome;
@@ -48,7 +48,7 @@ class Pessoa
      * Set the value of nome
      *
      * @return  self
-     */ 
+     */
     public function setNome($nome)
     {
         $this->nome = $nome;
@@ -58,7 +58,7 @@ class Pessoa
 
     /**
      * Get the value of mae
-     */ 
+     */
     public function getMae()
     {
         return $this->mae;
@@ -68,7 +68,7 @@ class Pessoa
      * Set the value of mae
      *
      * @return  self
-     */ 
+     */
     public function setMae($mae)
     {
         $this->mae = $mae;
@@ -78,7 +78,7 @@ class Pessoa
 
     /**
      * Get the value of sexo
-     */ 
+     */
     public function getSexo()
     {
         return $this->sexo;
@@ -88,11 +88,21 @@ class Pessoa
      * Set the value of sexo
      *
      * @return  self
-     */ 
+     */
     public function setSexo($sexo)
     {
         $this->sexo = $sexo;
 
         return $this;
+    }
+
+    public function setNascimento($nascimento)
+    {
+        $this->nascimento = $nascimento;
+    }
+
+    public function getNascimento()
+    {
+        return $this->nascimento;
     }
 }

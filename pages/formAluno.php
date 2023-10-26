@@ -9,7 +9,7 @@
     <div class="row mb-3">
         <label for="nascimento" class="col-sm-2 col-form-label">Data de Nascimento</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="nascimento" name="nascimento">
+            <input type="date" class="form-control" id="nascimento" name="nascimento">
         </div>
     </div>
 

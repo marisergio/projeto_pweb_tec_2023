@@ -10,12 +10,17 @@ class AlunoDao
         $host = "localhost";
         $usuario = "root";
         $senha = "";
-        $bd = "teste2";
+        $bd = "curso";
+
+        $nome = $aluno->getNome();
+        $nascimento = $aluno->getNascimento();
 
         $conexao = new PDO("mysql:host=$host;dbname=$bd", $usuario, $senha);
 
-        $query = $conexao->prepare('INSERT INTO t2(nome) VALUES (:nome)');
-        $query->bindParam(':nome', $aluno->getNome());
+        $query = $conexao->prepare('INSERT INTO pessoa(nome,nascimento) VALUES (:nome, :nascimento)');
+        $query->bindParam(':nome', $nome);
+        $query->bindParam(':nascimento', $nascimento);
+
         $query->execute();
 
         //    $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

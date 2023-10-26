@@ -12,9 +12,9 @@ if ($acao == NULL) {
 } else if ($acao == "salvar") {
     $aluno = new Aluno();
     $aluno->setNome($_POST['nome']);
+    $aluno->setNascimento($_POST['nascimento']);
 
     $alunoDao->salvar($aluno);
-
 } else if ($acao == "listar") {
     echo "listando...";
 } else if ($acao == "alterar") {
