@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Meu Projeto de PWEB</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
 
 <body>
@@ -27,25 +28,15 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="?page=alunoControle&acao=listar">Aluno</a></li>
                             <li><a class="dropdown-item" href="?page=professorControle">Professor</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li><a class="dropdown-item" href="?page=professorControle">Turma</a></li>
+                            
                         </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Matrícula</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                    </li>
+                    </li>             
                 </ul>
-                <form class="d-flex" role="search">
-                    <input name="J" />
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+                
             </div>
         </div>
     </nav>

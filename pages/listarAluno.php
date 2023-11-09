@@ -1,20 +1,37 @@
 
-<h3>ALUNOS</h3>
-<a class="btn btn-primary" href="?page=alunoControle">NOVO</a>
+<h3 style="margin:15px;">ALUNOS</h3>
+<hr />
+<div class="row" style="padding:15px;">
+    <div class="col-5">
+        <a class="btn btn-info" href="?page=alunoControle"> <i class="bi bi-file"></i><br /> NOVO</a>
+    </div>
+    <div class="col-7">
+        <form class="d-flex" role="search">            
+            <input class="form-control me-2" type="search" placeholder="Pesquise pelo nome do aluno" aria-label="Search">
+            <button class="btn btn-info" type="submit"><i class="bi bi-search"></i> Buscar</button>
+        </form>
+    </div>
+</div>
+
 
 <table class="table">
     <tr>
-        <td>NOME</td><td>NASCIMENTO</td><td>Editar</td><td>Excluir</td>
+        <th>NOME</th>
+        <th>NASCIMENTO</th>
+        <th class="text-center">Editar</th>
+        <th class="text-center">Excluir</th>
     </tr>
 
-    <?php for($i=0; $i<count($alunos); $i++) { ?>
+    <?php foreach ($alunos as $aluno) { ?>
         <tr>
-            <td><?php echo $alunos[$i]->nome; ?></td>
-            <td><?php echo $alunos[$i]->nascimento; ?></td>
-            <td>
-                Editar
+            <td><?php echo $aluno->nome; ?></td>
+            <td><?php echo $aluno->nascimento; ?></td>
+            <td class="text-center">
+                <i class="bi bi-pencil"></i>
             </td>
-            <td>Excluir</td>
+            <td class="text-center">
+                <i class="bi bi-trash"></i>
+            </td>
         </tr>
     <?php } ?>  
 </table>
