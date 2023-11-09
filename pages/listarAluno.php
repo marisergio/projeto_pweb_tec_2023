@@ -25,12 +25,16 @@
     <?php foreach ($alunos as $aluno) { ?>
         <tr>
             <td><?php echo $aluno->nome; ?></td>
-            <td><?php echo $aluno->nascimento; ?></td>
+            <td><?php echo date('d/m/Y', strtotime($aluno->nascimento)); ?></td>
             <td class="text-center">
-                <i class="bi bi-pencil"></i>
+                <a href="#" class="btn btn-warning">
+                    <i class="bi bi-pencil"></i>
+                </a>
             </td>
             <td class="text-center">
-                <i class="bi bi-trash"></i>
+                <a href="#" class="btn btn-danger">
+                    <i class="bi bi-trash"></i>
+                </a>
             </td>
         </tr>
     <?php } ?>  
