@@ -25,7 +25,7 @@
                             Cadastro
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="?page=alunoControle">Aluno</a></li>
+                            <li><a class="dropdown-item" href="?page=alunoControle&acao=listar">Aluno</a></li>
                             <li><a class="dropdown-item" href="?page=professorControle">Professor</a></li>
                             <li>
                                 <hr class="dropdown-divider">

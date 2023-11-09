@@ -15,8 +15,11 @@ if ($acao == NULL) {
     $aluno->setNascimento($_POST['nascimento']);
 
     $alunoDao->salvar($aluno);
+
+    header("Location: ?page=alunoControle&acao=listar");
 } else if ($acao == "listar") {
-    echo "listando...";
+    $alunos = $alunoDao->listar();
+    include 'pages/listarAluno.php';
 } else if ($acao == "alterar") {
     echo "alterando...";
 } else if ($acao == "excluir") {

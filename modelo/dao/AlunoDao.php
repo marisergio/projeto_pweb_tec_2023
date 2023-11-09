@@ -34,6 +34,19 @@ class AlunoDao
 
     public function listar()
     {
+        $host = "localhost";
+        $usuario = "root";
+        $senha = "";
+        $bd = "curso";
+
+        $conexao = new PDO("mysql:host=$host;dbname=$bd", $usuario, $senha);
+
+        $query = $conexao->prepare('SELECT nome, nascimento FROM pessoa');
+        $query->execute();
+        $alunos = $query->fetchAll(PDO::FETCH_CLASS);
+
+        return $alunos;
+
     }
 
     public function deletar($id)
