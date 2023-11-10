@@ -41,7 +41,7 @@ class AlunoDao
 
         $conexao = new PDO("mysql:host=$host;dbname=$bd", $usuario, $senha);
 
-        $query = $conexao->prepare('SELECT nome, nascimento FROM pessoa');
+        $query = $conexao->prepare('SELECT id, nome, nascimento FROM pessoa');
         $query->execute();
         $alunos = $query->fetchAll(PDO::FETCH_CLASS);
 
@@ -51,9 +51,51 @@ class AlunoDao
 
     public function deletar($id)
     {
+        $host = "localhost";
+        $usuario = "root";
+        $senha = "";
+        $bd = "curso";
+
+        $conexao = new PDO("mysql:host=$host;dbname=$bd", $usuario, $senha);
+        
+        $query = $conexao->prepare('delete from pessoa where id=:id');
+        $query->bindParam(':id', $id);
+        $query->execute();
     }
 
     public function atualizar($aluno)
     {
+        $host = "localhost";
+        $usuario = "root";
+        $senha = "";
+        $bd = "curso";
+
+        $nome = $aluno->getNome();
+        $id = $aluno->getId();
+
+        $conexao = new PDO("mysql:host=$host;dbname=$bd", $usuario, $senha);
+        $query = $conexao->prepare('update pessoa set nome=:nome where id=:id');
+        $query->bindParam(':nome', $nome);
+        $query->bindParam(':id', $id);
+        $query->execute();
+        
+    }
+
+    public function get($id)
+    {
+        $host = "localhost";
+        $usuario = "root";
+        $senha = "";
+        $bd = "curso";
+
+        $conexao = new PDO("mysql:host=$host;dbname=$bd", $usuario, $senha);
+
+        $query = $conexao->prepare('SELECT id, nome, nascimento FROM pessoa WHERE id=:id');
+        $query->bindParam(':id',$id);
+        $query->execute();
+        $alunos = $query->fetchAll(PDO::FETCH_CLASS);
+
+        return $alunos[0];
+
     }
 }

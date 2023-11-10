@@ -21,7 +21,21 @@ if ($acao == NULL) {
     $alunos = $alunoDao->listar();
     include 'pages/listarAluno.php';
 } else if ($acao == "alterar") {
-    echo "alterando...";
+   
+    $aluno = new Aluno();
+    $aluno->setId($_POST['id']);
+    $aluno->setNome($_POST['nome']);
+    $alunoDao->atualizar($aluno);
+
+    header("Location: ?page=alunoControle&acao=listar");
+    
 } else if ($acao == "excluir") {
-    echo "excluindo...";
+    $id = $_GET['id'];
+    $alunoDao->deletar($id);
+    header("Location: ?page=alunoControle&acao=listar");
+}else if($acao == "get"){
+    $id = $_GET['id'];
+
+    $aluno = $alunoDao->get($id);
+    include 'pages/formAluno.php';
 }

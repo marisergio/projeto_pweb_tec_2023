@@ -27,12 +27,12 @@
             <td><?php echo $aluno->nome; ?></td>
             <td><?php echo date('d/m/Y', strtotime($aluno->nascimento)); ?></td>
             <td class="text-center">
-                <a href="#" class="btn btn-warning">
+                <a href="?page=alunoControle&acao=get&id=<?php echo $aluno->id; ?>" class="btn btn-warning">
                     <i class="bi bi-pencil"></i>
                 </a>
             </td>
             <td class="text-center">
-                <a href="#" class="btn btn-danger">
+                <a href="?page=alunoControle&acao=excluir&id=<?php echo $aluno->id; ?>" class="btn btn-danger">
                     <i class="bi bi-trash"></i>
                 </a>
             </td>
