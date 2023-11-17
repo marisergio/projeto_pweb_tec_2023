@@ -14,12 +14,14 @@ class AlunoDao
 
         $nome = $aluno->getNome();
         $nascimento = $aluno->getNascimento();
+        $sexo = $aluno->getSexo();
 
         $conexao = new PDO("mysql:host=$host;dbname=$bd", $usuario, $senha);
 
-        $query = $conexao->prepare('INSERT INTO pessoa(nome,nascimento) VALUES (:nome, :nascimento)');
+        $query = $conexao->prepare('INSERT INTO pessoa(nome,nascimento,sexo) VALUES (:nome, :nascimento,:sexo)');
         $query->bindParam(':nome', $nome);
         $query->bindParam(':nascimento', $nascimento);
+        $query->bindParam(':sexo', $sexo);
 
         $query->execute();
 
@@ -41,7 +43,7 @@ class AlunoDao
 
         $conexao = new PDO("mysql:host=$host;dbname=$bd", $usuario, $senha);
 
-        $query = $conexao->prepare('SELECT id, nome, nascimento FROM pessoa');
+        $query = $conexao->prepare('SELECT id, nome, nascimento, sexo FROM pessoa');
         $query->execute();
         $alunos = $query->fetchAll(PDO::FETCH_CLASS);
 
@@ -71,12 +73,16 @@ class AlunoDao
         $bd = "curso";
 
         $nome = $aluno->getNome();
+        $nascimento = $aluno->getNascimento();
+        $sexo = $aluno->getSexo();
         $id = $aluno->getId();
 
         $conexao = new PDO("mysql:host=$host;dbname=$bd", $usuario, $senha);
-        $query = $conexao->prepare('update pessoa set nome=:nome where id=:id');
+        $query = $conexao->prepare('update pessoa set nome=:nome, nascimento=:nascimento, sexo=:sexo where id=:id');
         $query->bindParam(':nome', $nome);
         $query->bindParam(':id', $id);
+        $query->bindParam(':sexo', $sexo);
+        $query->bindParam(':nascimento', $nascimento);
         $query->execute();
         
     }
@@ -90,7 +96,7 @@ class AlunoDao
 
         $conexao = new PDO("mysql:host=$host;dbname=$bd", $usuario, $senha);
 
-        $query = $conexao->prepare('SELECT id, nome, nascimento FROM pessoa WHERE id=:id');
+        $query = $conexao->prepare('SELECT id, nome, nascimento, sexo FROM pessoa WHERE id=:id');
         $query->bindParam(':id',$id);
         $query->execute();
         $alunos = $query->fetchAll(PDO::FETCH_CLASS);
@@ -109,7 +115,7 @@ class AlunoDao
 
         $conexao = new PDO("mysql:host=$host;dbname=$bd", $usuario, $senha);
 
-        $query = $conexao->prepare('SELECT id, nome, nascimento FROM pessoa WHERE nome like :filtro');
+        $query = $conexao->prepare('SELECT id, nome, nascimento, sexo FROM pessoa WHERE nome like :filtro');
         $query->bindParam(':filtro',$filtro);
         $query->execute();
         $alunos = $query->fetchAll(PDO::FETCH_CLASS);

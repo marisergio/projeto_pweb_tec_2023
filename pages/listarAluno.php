@@ -18,6 +18,7 @@
     <tr>
         <th>NOME</th>
         <th>NASCIMENTO</th>
+        <th>SEXO</th>
         <th class="text-center">Editar</th>
         <th class="text-center">Excluir</th>
     </tr>
@@ -26,6 +27,7 @@
         <tr>
             <td><?php echo $aluno->nome; ?></td>
             <td><?php echo date('d/m/Y', strtotime($aluno->nascimento)); ?></td>
+            <td><?php if($aluno->sexo=="f") echo "Feminino"; else echo "Masculino"; ?></td>
             <td class="text-center">
                 <a href="?page=alunoControle&acao=get&id=<?php echo $aluno->id; ?>" class="btn btn-warning">
                     <i class="bi bi-pencil"></i>

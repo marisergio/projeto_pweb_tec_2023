@@ -13,6 +13,7 @@ if ($acao == NULL) {
     $aluno = new Aluno();
     $aluno->setNome($_POST['nome']);
     $aluno->setNascimento($_POST['nascimento']);
+    $aluno->setSexo($_POST['sexo']);
 
     $alunoDao->salvar($aluno);
 
@@ -25,6 +26,7 @@ if ($acao == NULL) {
     $aluno = new Aluno();
     $aluno->setId($_POST['id']);
     $aluno->setNome($_POST['nome']);
+    $aluno->setSexo($_POST['sexo']);
     $alunoDao->atualizar($aluno);
 
     header("Location: ?page=alunoControle&acao=listar");

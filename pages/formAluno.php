@@ -24,6 +24,17 @@
             <input type="date" class="form-control" id="nascimento" name="nascimento">
         </div>
     </div>
+
+    <div class="row mb-3">
+        <label for="sexo" class="col-sm-2 col-form-label">Sexo</label>
+        <div class="col-sm-10">
+            <select class="form-control" name="sexo">
+                <option value="">selecione</option>
+                <option value="f">Feminino</option>
+                <option value="m">Masculino</option>
+            </select>
+        </div>
+    </div>
     
     <button value="<?php echo $acao; ?>" name="acao" type="submit" class="btn btn-primary">Salvar</button>
 </form>
