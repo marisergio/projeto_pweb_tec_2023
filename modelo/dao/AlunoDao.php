@@ -98,4 +98,22 @@ class AlunoDao
         return $alunos[0];
 
     }
+
+    public function buscar($filtro){
+        $host = "localhost";
+        $usuario = "root";
+        $senha = "";
+        $bd = "curso";
+
+        $filtro = "%".$filtro."%";
+
+        $conexao = new PDO("mysql:host=$host;dbname=$bd", $usuario, $senha);
+
+        $query = $conexao->prepare('SELECT id, nome, nascimento FROM pessoa WHERE nome like :filtro');
+        $query->bindParam(':filtro',$filtro);
+        $query->execute();
+        $alunos = $query->fetchAll(PDO::FETCH_CLASS);
+
+        return $alunos;
+    }
 }

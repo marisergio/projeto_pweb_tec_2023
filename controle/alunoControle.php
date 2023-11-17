@@ -38,4 +38,11 @@ if ($acao == NULL) {
 
     $aluno = $alunoDao->get($id);
     include 'pages/formAluno.php';
+}else if($acao == "buscar"){
+    
+    $filtro = $_POST['filtro'];
+    $alunos = $alunoDao->buscar($filtro);
+
+    include 'pages/listarAluno.php';
+
 }
