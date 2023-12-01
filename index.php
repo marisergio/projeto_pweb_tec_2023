@@ -27,8 +27,8 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="?page=alunoControle&acao=listar">Aluno</a></li>
-                            <li><a class="dropdown-item" href="?page=professorControle">Professor</a></li>
-                            <li><a class="dropdown-item" href="?page=professorControle">Turma</a></li>
+                            <li><a class="dropdown-item" href="?page=professorControle&acao=listar">Professor</a></li>
+                            <li><a class="dropdown-item" href="?page=turmaControle&acao=listar">Turma</a></li>
                             
                         </ul>
                     </li>

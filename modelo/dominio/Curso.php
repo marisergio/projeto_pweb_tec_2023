@@ -1,7 +1,7 @@
 <?php 
 
 class Curso{
-    private $id;
+    public $id;
     private $nome;
     private $ch;
     private $area;

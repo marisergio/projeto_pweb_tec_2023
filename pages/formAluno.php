@@ -5,10 +5,14 @@
        <input type="hidden" name="id" value="<?php echo $aluno->id; ?>"/>
        <?php
        $nome=$aluno->nome;
+       $nascimento=$aluno->nascimento;
+       $sexo=$aluno->sexo;
        $acao = "alterar"; 
     }else{
         $nome='';
         $acao = "salvar";
+        $sexo = '';
+        $nascimento = '';
     }
     ?>    
 
@@ -21,7 +25,7 @@
     <div class="row mb-3">
         <label for="nascimento" class="col-sm-2 col-form-label">Data de Nascimento</label>
         <div class="col-sm-10">
-            <input type="date" class="form-control" id="nascimento" name="nascimento">
+            <input type="date" class="form-control" id="nascimento" name="nascimento" value="<?php echo $nascimento; ?>">
         </div>
     </div>
 
@@ -30,8 +34,8 @@
         <div class="col-sm-10">
             <select class="form-control" name="sexo">
                 <option value="">selecione</option>
-                <option value="f">Feminino</option>
-                <option value="m">Masculino</option>
+                <option value="f" <?php if($sexo=="f"){ ?>selected<?php } ?>>Feminino</option>
+                <option value="m" <?php if($sexo=="m"){ ?>selected<?php } ?>>Masculino</option>
             </select>
         </div>
     </div>

@@ -1,5 +1,7 @@
 <?php
 
+require_once 'util/configConexao.php';
+
 class AlunoDao
 {
 
@@ -7,16 +9,13 @@ class AlunoDao
     {
         //  try {
 
-        $host = "localhost";
-        $usuario = "root";
-        $senha = "";
-        $bd = "curso";
+        $configConexao = new ConfigConexao();
 
         $nome = $aluno->getNome();
         $nascimento = $aluno->getNascimento();
         $sexo = $aluno->getSexo();
 
-        $conexao = new PDO("mysql:host=$host;dbname=$bd", $usuario, $senha);
+        $conexao = $configConexao->getConexao();
 
         $query = $conexao->prepare('INSERT INTO pessoa(nome,nascimento,sexo) VALUES (:nome, :nascimento,:sexo)');
         $query->bindParam(':nome', $nome);
@@ -36,12 +35,9 @@ class AlunoDao
 
     public function listar()
     {
-        $host = "localhost";
-        $usuario = "root";
-        $senha = "";
-        $bd = "curso";
+        $configConexao = new ConfigConexao();
 
-        $conexao = new PDO("mysql:host=$host;dbname=$bd", $usuario, $senha);
+        $conexao = $configConexao->getConexao();
 
         $query = $conexao->prepare('SELECT id, nome, nascimento, sexo FROM pessoa');
         $query->execute();
@@ -53,12 +49,9 @@ class AlunoDao
 
     public function deletar($id)
     {
-        $host = "localhost";
-        $usuario = "root";
-        $senha = "";
-        $bd = "curso";
+        $configConexao = new ConfigConexao();
 
-        $conexao = new PDO("mysql:host=$host;dbname=$bd", $usuario, $senha);
+        $conexao = $configConexao->getConexao();
         
         $query = $conexao->prepare('delete from pessoa where id=:id');
         $query->bindParam(':id', $id);
@@ -67,17 +60,16 @@ class AlunoDao
 
     public function atualizar($aluno)
     {
-        $host = "localhost";
-        $usuario = "root";
-        $senha = "";
-        $bd = "curso";
+        $configConexao = new ConfigConexao();
+
+        $conexao = $configConexao->getConexao();
 
         $nome = $aluno->getNome();
         $nascimento = $aluno->getNascimento();
         $sexo = $aluno->getSexo();
         $id = $aluno->getId();
 
-        $conexao = new PDO("mysql:host=$host;dbname=$bd", $usuario, $senha);
+        
         $query = $conexao->prepare('update pessoa set nome=:nome, nascimento=:nascimento, sexo=:sexo where id=:id');
         $query->bindParam(':nome', $nome);
         $query->bindParam(':id', $id);
@@ -89,12 +81,9 @@ class AlunoDao
 
     public function get($id)
     {
-        $host = "localhost";
-        $usuario = "root";
-        $senha = "";
-        $bd = "curso";
+        $configConexao = new ConfigConexao();
 
-        $conexao = new PDO("mysql:host=$host;dbname=$bd", $usuario, $senha);
+        $conexao = $configConexao->getConexao();
 
         $query = $conexao->prepare('SELECT id, nome, nascimento, sexo FROM pessoa WHERE id=:id');
         $query->bindParam(':id',$id);
@@ -106,14 +95,11 @@ class AlunoDao
     }
 
     public function buscar($filtro){
-        $host = "localhost";
-        $usuario = "root";
-        $senha = "";
-        $bd = "curso";
+        $configConexao = new ConfigConexao();
+
+        $conexao = $configConexao->getConexao();
 
         $filtro = "%".$filtro."%";
-
-        $conexao = new PDO("mysql:host=$host;dbname=$bd", $usuario, $senha);
 
         $query = $conexao->prepare('SELECT id, nome, nascimento, sexo FROM pessoa WHERE nome like :filtro');
         $query->bindParam(':filtro',$filtro);

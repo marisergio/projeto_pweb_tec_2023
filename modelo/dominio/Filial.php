@@ -2,7 +2,7 @@
 
 class Filial
 {
-    private $id;
+    public $id;
     private $nome;
     private $logradouro;
     private $numero;
