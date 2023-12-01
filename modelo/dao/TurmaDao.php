@@ -9,20 +9,15 @@ class TurmaDao extends GenericDao
     {
       try {
 
-        $idProfessor = $turma->professor->getId();
-
         $query = $this->conexao->prepare('INSERT INTO turma(data_inicio,data_fim,filial_id,curso_id,professor_id) 
             VALUES (:dataInicio, :dataFim,:idFilial,:idCurso,:idProfessor)');
         $query->bindParam(':dataInicio', $turma->dataInicio);
         $query->bindParam(':dataFim', $turma->dataFim);
         $query->bindParam(':idFilial', $turma->filial->id);
         $query->bindParam(':idCurso', $turma->curso->id);
-        $query->bindParam(':idProfessor', $turma->$idProfessor);
-       
-        $query->execute();
+        $query->bindParam(':idProfessor', $turma->professor->getId());
 
-        //    $this->conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        //  $this->conexao->exec('SET NAMES "utf8"');
+        $query->execute();
 
          } catch (PDOException $e) {
             print $e->getMessage();
